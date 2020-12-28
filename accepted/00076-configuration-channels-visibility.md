@@ -31,16 +31,16 @@ Typical and complete use case:
 
 1. create an Organization O1
 2. create a System Group G1
-3. onboard a System S1 as a SUSE Manager client
-4. have the System S1 part of the Organization O1
-5. have the System S1 part of the System Group G1
-6. create a State Channel C1 at an Organization O1 level
-7. create a State Channel C2 at a System Group G1 level
-8. create a State Channel C3 directly at a System S1 detail level
-9. go to System Detail > States > Configuration Channels > System
-10. the C3 channel is listed as an assignment to S1
-11. there is no info about C1 nor C2 channels, but because of step 4. 5. 6. 7.  in reality S1 will receive not only C3 but also C1 and C2 as inheritance of its own setup, being part of O1 and G1
-12. the reverse logic is valid as well, there is no information about systems assigned to channels C1 or C2 in Configuration > Channels > Channel Overview > Systems because no system is directly assigned to them, but in the end they are.
+3. onboard a System S1 as a Salt client in the Organization O1 and System Group G1
+4. create a State Channel C1 at an Organization O1 level
+5. create a State Channel C2 at a System Group G1 level
+6. create a State Channel C3 directly at a System S1 detail level
+7. go to System Detail > States > Configuration Channels > System
+8. the C3 channel is listed as an assignment to S1
+9. there is no info about C1 nor C2 channels, but because of step 4. 5. in reality S1 will receive not only C3 but also C1 and C2 as inheritance of its own setup, being part of O1 and G1
+10. the reverse logic is valid as well, there is no information about systems assigned to channels C1 or C2 in Configuration > Channels > Channel Overview > Systems because. No system is directly assigned to them, but S1 inherits them.
+
+Additional use case: a system can be part of multiple groups, therefore **inheritance** can become wide and complex really fast.
 
 
 ### What is the expected outcome?
