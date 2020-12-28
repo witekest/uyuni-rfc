@@ -23,7 +23,7 @@ At the moment there is no way to figure out Configuration and State Channels con
 
 but only the third level is visible for each System. This means that once Salt States are applied, there will be more than what is visible: Salt States are a set of defined states from
 
-```Organization Configuration Channels **+** System Group Configuration Channels **+** System Configuration Channels```
+Organization Configuration Channels **+** System Group Configuration Channels **+** System Configuration Channels
 
 ### What use cases does it support?
 
