@@ -15,15 +15,17 @@ Provide visibility and overview of **inherited** Configuration and State Channel
 
 ### Why are we doing this?
 
-At the moment there is no way to figure out Configuration and State Channels connections other than the ones directly in place to a specific System. Such a type of channel can exist and be defined at:
+At the moment there is no way to figure out which Configuration/State Channels are assigned to a System, other than the directly assigned ones.
 
-- Organization level
-- System Group level
-- System level
+Apart from this direct assignment, the System inherits the Configuration/State channels defined on the Organization level and the System Group level, but this inheritance is not visible in the Web UI/XML RPC.
 
-but only the third level is visible for each System. This means that once Salt States are applied, there will be more than what is visible: Salt States are a set of defined states from
+To sum it up: The Configuration/State channels effective for a system are composed based on:
 
-Organization Configuration Channels **+** System Group Configuration Channels **+** System Configuration Channels
+  + Organization Configuration Channels
+  + System Group Configuration Channels
+  + System Configuration Channels
+
+Note: behind all the States in the channels from above, there are also the default ones the server has to supply during the registration of a client. Those are not *assigned* in any way, the do just exists due to the logic implementation of a client registration using Salt.
 
 ### What use cases does it support?
 
@@ -40,7 +42,7 @@ Typical and complete use case:
 9. there is no info about C1 nor C2 channels, but because of step 4. 5. in reality S1 will receive not only C3 but also C1 and C2 as inheritance of its own setup, being part of O1 and G1
 10. the reverse logic is valid as well, there is no information about systems assigned to channels C1 or C2 in Configuration > Channels > Channel Overview > Systems because. No system is directly assigned to them, but S1 inherits them.
 
-Additional use case: a system can be part of multiple groups, therefore **inheritance** can become wide and complex really fast.
+Additional use case: a system can be part of multiple groups, therefore **inheritance** can grow really fast having all the content taken from all the groups and no way to deduct *what comes from where*, the exact root problem this RFC has the purpose to solve.
 
 
 ### What is the expected outcome?
