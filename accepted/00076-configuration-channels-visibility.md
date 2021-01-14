@@ -47,8 +47,11 @@ Additional use case: a system can be part of multiple groups, therefore **inheri
 
 ### What is the expected outcome?
 
-The fact that with Salt *black magic* there is no way to figure out what will override others in the applied states, we cannot provide a reliable hierarchy.
-What we can provide is a full set of assignments, no matter if directly assigned or inherited by other assignments.
+We can provide a representation of all State/Configuration channels assigned to a system: both direct and inherited.
+
+#### Limitation
+Because of the way the Salt highstate is composed, it is hard to show the order of the application of the states.
+
 
 # Detailed design
 [design]: #detailed-design
